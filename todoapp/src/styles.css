@@ -1,0 +1,627 @@
+/* styles.css */
+
+/* 全体のリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+/* ボディの基本設定 */
+body {
+    background-color: #f0f0f0; /* 明るいグレーの背景 */
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 70px; /* ヘッダーの高さ分の余白を確保 */
+}
+
+/* ヘッダー */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 15px 40px;
+    background-color: #3a3a3a; /* ダークグレーの背景 */
+    color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* 固定ヘッダー */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 60px; /* ヘッダーの固定高さ */
+}
+
+.header .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.header .user-info img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header .user-info .username {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-right: 20px;
+}
+
+.header .user-page-link {
+    text-decoration: none;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 3px;
+    border: 1px solid #ffffff;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 20px;
+}
+
+.header .user-page-link:hover {
+    background-color: #ffffff;
+    color: #3a3a3a;
+}
+
+/* メインコンテンツのコンテナ */
+.main-container {
+    width: 100%;
+    max-width: 1200px; /* 最大幅の設定 */
+    margin: 20px auto; /* ヘッダーの高さ分の余白を考慮 */
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* グループマネージャー */
+.group-manager {
+    grid-column: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.group-manager h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #3a3a3a;
+    text-align: center;
+}
+
+.group-manager input[type="text"],
+.group-manager input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.group-manager button {
+    width: 100%;
+    background-color: #5a5a5a; /* 中間のグレー */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.group-manager button:hover {
+    background-color: #444;
+}
+
+/* グループリスト */
+.group-list {
+    grid-column: 1 / 3;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.group-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.group-list ul li {
+    background-color: #e6e6e6; /* 明るいグレーの背景 */
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.group-list ul li .group-info {
+    margin-bottom: 10px;
+}
+
+.group-list ul li .group-info h3 {
+    font-size: 1.2rem;
+    color: #3a3a3a;
+}
+
+.group-list ul li .group-info p {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.group-list ul li .group-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.group-actions button {
+    width: auto;
+    background-color: #cccccc; /* ライトグレー */
+    color: #333;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.9rem;
+}
+
+.group-actions button:hover {
+    background-color: #bbbbbb;
+}
+
+.group-actions .delete-button {
+    background-color: #ff4d4d;
+    color: #fff;
+}
+
+.group-actions .delete-button:hover {
+    background-color: #e63939;
+}
+
+/* 管理者用のメンバーマネージメント */
+.member-management {
+    grid-column: 1 / 3;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.member-management ul {
+    padding-left: 0;
+}
+
+.member-management ul li {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.member-management ul li select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.member-management ul li button {
+    margin-left: 10px;
+}
+/* styles.css */
+
+/* UserProfileのアイコンサイズを調整 */
+.user-icon-large1 {
+    width: 150px; /* 画像の幅を設定 */
+    height: 150px; /* 画像の高さを設定 */
+    border-radius: 50%; /* 円形にするためのボーダー半径 */
+    object-fit: cover; /* 画像をボックスに収める */
+    margin-bottom: 20px; /* アイコンと他の要素との間にスペースを設定 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 画像にシャドウを追加 */
+}
+/* styles.css */
+
+/* 全体のリセット */
+
+
+/* ユーザーページのスタイル */
+.user-page {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #3a3a3a; /* ダークグレーのテキスト */
+}
+
+/* styles.css */
+
+/* UserProfileのアイコンサイズを調整 */
+.user-profile-icon {
+    width: 100px; /* 画像の幅を設定 */
+    height: 100px; /* 画像の高さを設定 */
+    border-radius: 50%; /* 円形にするためのボーダー半径 */
+    object-fit: cover; /* 画像をボックスに収める */
+    display: block;
+    margin: 0 auto 20px auto; /* 画像を中央に配置し、下に余白を追加 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 画像にシャドウを追加 */
+}
+
+
+.icon-upload,
+.bio-section {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.icon-upload label,
+.bio-section label {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #3a3a3a;
+}
+
+.icon-upload input,
+.bio-section textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 10px;
+    background-color: #f7f7f7;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.bio-section textarea {
+    height: 100px;
+    resize: vertical; /* 縦方向のリサイズを許可 */
+}
+
+button {
+    width: 100%;
+    max-width: 200px;
+    background-color: #5a5a5a; /* 中間のグレー */
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #444;
+}
+.user-bio {
+    font-size: 1rem;
+    color: #666;
+    margin: 10px 0;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.user-update-section {
+    margin-top: 20px;
+}
+
+.user-update-section div {
+    margin-bottom: 20px;
+}
+
+.user-update-section label {
+    font-size: 1rem;
+    color: #3a3a3a;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.user-update-section input[type="text"],
+.user-update-section textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #f7f7f7;
+}
+
+.user-update-section textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.user-update-section button {
+    width: 100%;
+    max-width: 200px;
+    background-color: #5a5a5a;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.user-update-section button:hover {
+    background-color: #444;
+}
+/* styles.css */
+
+.user-profile-page {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-page h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #3a3a3a;
+}
+
+.user-profile-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 20px auto;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-profile-page p {
+    font-size: 1rem;
+    color: #666;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.user-bio {
+    font-style: italic;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 20px 0;
+    text-align: center;
+}
+/* styles.css */
+
+.note-history {
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    max-height: 150px;
+    overflow-y: scroll;
+  }
+  
+  .note-history ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .note-history li {
+    margin-bottom: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+  }
+  
+  button {
+    margin-top: 5px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+
+/* 履歴表示を画面の左側に固定 */
+.note-history-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f0f0f0;
+    padding: 20px;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .note-history-sidebar h4 {
+    margin-bottom: 20px;
+  }
+  
+  .note-history-sidebar ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .note-history-sidebar li {
+    margin-bottom: 15px;
+  }
+  
+  .note-history-sidebar button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .note-history-sidebar button:hover {
+    background-color: #0056b3;
+  }
+
+/* styles.css */
+
+/* ラベル表示部分 */
+.note-labels {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .note-label {
+    background-color: #e0e0e0;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .remove-label-button {
+    background: none;
+    border: none;
+    color: #ff0000;
+    font-size: 14px;
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  
+  /* アンダーバーのスタイリング */
+  .note-actions-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    padding: 10px;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index: 10;
+  }
+  
+  .note-actions-button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .note-actions-button.save-button {
+    background-color: #4CAF50;
+  }
+  
+  .note-actions-button.delete-button {
+    background-color: #f44336;
+  }
+  
+  .note-actions-button.add-label-button {
+    background-color: #2196F3;
+  }
+  
+  .label-input {
+    display: flex;
+    align-items: center;
+  }
+  
+  .label-input-field {
+    padding: 6px;
+    margin-right: 10px;
+  }
+  
+  
+  /* カラーピッカーのデザイン */
+  .color-picker {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+  
+  .color-picker input {
+    margin-left: 5px;
+    width: 40px;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* ノートカードのデザイン */
+  .note-card {
+    padding: 10px;
+    border-radius: 10px;
+    width: 300px; /* ノートカードの幅を大きく設定 */
+    min-height: 150px; /* 最小の高さを設定 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .note-text {
+    width: 100%;
+    height: auto;
+    min-height: 50px; /* 最小の高さを設定 */
+    max-height: 300px; /* 最大の高さを設定 */
+    border: none;
+    background-color: #ffffff; /* テキストボックスの背景色を白に設定 */
+    color: #000000; /* テキストの色を黒に設定 */
+    outline: none;
+    resize: none;
+    overflow: hidden;
+  }
+  
